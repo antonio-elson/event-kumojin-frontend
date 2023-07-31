@@ -79,7 +79,7 @@ export const HomeContent = styled.div`
   width: 100%;
 `;
 
-export const HomeTitle = styled.div`
+export const HomeTitle = styled.p`
   font-size: 36px;
   font-weight: 600;
   text-align: center;
