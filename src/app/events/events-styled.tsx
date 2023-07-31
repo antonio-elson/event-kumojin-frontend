@@ -53,3 +53,9 @@ export const ModalButton = styled.div`
   justify-content: space-between;
   margin: 24px 0 12px;
 `;
+
+export const ListCard = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+`;
