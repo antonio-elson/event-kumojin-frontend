@@ -2,7 +2,7 @@ import * as React from "react";
 import { ButtonCustom, ButtonStyleProps } from "./button-styled";
 
 export interface ButtonProps {
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   name?: string;
   type?: "primary" | "secondary";
   disabled?: boolean;
