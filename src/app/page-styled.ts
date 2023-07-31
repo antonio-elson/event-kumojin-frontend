@@ -67,3 +67,20 @@ export const ContentFooter = styled.div`
     color: #c6c2fa;
   }
 `;
+
+export const Content = styled.div`
+  display: grid;
+  place-items: center;
+`;
+
+export const HomeContent = styled.div`
+  display: grid;
+  place-items: center;
+  width: 100%;
+`;
+
+export const HomeTitle = styled.div`
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+`;
