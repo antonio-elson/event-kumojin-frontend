@@ -1,7 +1,7 @@
 "use client";
 import styled from "styled-components";
 
-export const ContentCard = styled.p`
+export const ContentCard = styled.div`
   padding: 12px;
   display: grid;
   border-radius: 8px;
@@ -11,7 +11,7 @@ export const ContentCard = styled.p`
   min-width: 200px;
   background-color: #ffffff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  flex: 1 1 150px;
+  width: 100%;
   margin: 5px;
   transition: all 250ms;
 

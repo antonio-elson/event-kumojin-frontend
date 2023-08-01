@@ -1,10 +1,16 @@
 "use client";
 import * as React from "react";
 import Button from "../components/button/button";
+import Card, { EventsRequest } from "../components/card/card";
 import Input from "../components/input/input";
-import { WrapperDate, WrapperDateInput } from "../components/input/input-styled";
+import {
+  WrapperDate,
+  WrapperDateInput,
+} from "../components/input/input-styled";
+import { getUrlApi } from "../services/api";
 import {
   Container,
+  ListCard,
   Modal,
   ModalButton,
   ModalContent,
@@ -19,9 +25,38 @@ export default function Events() {
   const [startHour, setStartHour] = React.useState("");
   const [endDate, setEndDate] = React.useState("");
   const [endHour, setEndHour] = React.useState("");
+  const [events, setEvents] = React.useState<EventsRequest>([]);
+  const [isLoaging, setIsLoading] = React.useState<boolean>(false);
+
+  const getListEvents = React.useCallback(() => {
+    setIsLoading(true);
+    getUrlApi
+      .get("/events")
+      .then((response) => {
+        setEvents([...response.data.content]);
+      })
+      .catch((e) => console.log("error----", e))
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  React.useEffect(() => getListEvents(), [getListEvents]);
 
   const save = React.useCallback(() => {
     console.log("Enregistrer");
+  }, []);
+
+  const formatEventDate = React.useCallback((date: string) => {
+    const dateTime = new Date(date);
+    const dateTimeFormat = new Intl.DateTimeFormat("fr-CA", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+    }).format(dateTime);
+
+    return dateTimeFormat;
   }, []);
 
   return (
@@ -96,6 +131,17 @@ export default function Events() {
           </ModalButton>
         </ModalContent>
       </Modal>
+      <ListCard>
+        {events.map(({ name, description, startDate, endDate }, i) => (
+          <Card
+            key={i}
+            description={description}
+            name={name}
+            startDate={formatEventDate(startDate)}
+            endDate={formatEventDate(endDate)}
+          />
+        ))}
+      </ListCard>
     </Container>
   );
 }
