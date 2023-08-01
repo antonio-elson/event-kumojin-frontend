@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ButtonCustom, ButtonStyleProps } from "./button-styled";
+import { ButtonCustom } from "./button-styled";
 
 export interface ButtonProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;

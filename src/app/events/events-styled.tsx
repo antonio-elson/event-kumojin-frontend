@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 export interface ModalStyleProps {
-  isActive: boolean;
+    isActive: boolean;
 }
 
 export const Container = styled.div`
@@ -14,7 +14,7 @@ export const WrapperButton = styled.div`
 `;
 
 export const Modal = styled.div<ModalStyleProps>`
-  display: ${({ isActive }) => (isActive ? "grid" : "none")};
+  display: ${({isActive}) => (isActive ? "grid" : "none")};
   place-items: center;
   background-color: rgba(0, 0, 0, 0.6);
   align-content: center;
@@ -58,4 +58,23 @@ export const ListCard = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
+`;
+
+export const Loader = styled.div`
+ border: 16px solid #11cee7;
+  border-top: 16px #1153d6 solid;
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  animation: spin 2s linear infinite;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 `;

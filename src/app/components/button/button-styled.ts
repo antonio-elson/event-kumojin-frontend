@@ -39,5 +39,6 @@ export const ButtonCustom = styled.button<ButtonStyleProps>`
       box-shadow: none;
       transform: translateY(2px);
     }
+
   `}
 `;
