@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Image from "next/image";
+import Logo from "./assets/logo.png";
 import {
   ContentFooter,
   Footer,
@@ -24,9 +26,6 @@ export default function RootLayout({
 }) {
   const ItemLinks = () => (
     <>
-      <LinkHeader href="/about">
-        <p>About</p>
-      </LinkHeader>
       <LinkHeader href="/events">
         <p>Créer événement</p>
       </LinkHeader>
@@ -37,6 +36,16 @@ export default function RootLayout({
       <body className={inter.className}>
         <NavHeader>
           <LinkNav href="/">
+            <Image
+              style={{
+                width: 32,
+                height: 32,
+                marginRight: 8,
+              }}
+              src={Logo}
+              priority
+              alt="Icon home"
+            />
             <p>Events KMJN</p>
           </LinkNav>
           <Menu>
